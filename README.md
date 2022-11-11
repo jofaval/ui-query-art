@@ -7,6 +7,7 @@
    1. [Docs](#docs)
    1. [Artworks](#artworks)
 1. [Run it!](#run-it)
+1. [Credits](#credits)
 
 ## Motivation
 
@@ -36,3 +37,9 @@ And install all the necessary packages
 ```bash
 pnpm install # or npm install or yarn install
 ```
+
+## Credits
+
+[https://github.com/public-apis/public-apis#books](https://github.com/public-apis/public-apis#books).
+
+Tanner Linsley (Tannstack's creator) and Theo Browne (the influencer/ceo that made me want to try react query so bad)
