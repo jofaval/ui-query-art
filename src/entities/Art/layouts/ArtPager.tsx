@@ -1,16 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { ArtPiece } from "../ArtPiece";
+import { Artwork } from "../Artwork";
 import { FetchErrorContainer } from "../../../components/FetchErrorContainer";
 
-import { ArtEduArtPieceResponse } from "../types/art-piece.type";
+import { ArtEduArtworkResponse } from "../types/art-work.type";
 
 export const ArtPager: React.FC = () => {
   const {
     data: pieces,
     isLoading,
     error,
-  } = useQuery<ArtEduArtPieceResponse>({
+  } = useQuery<ArtEduArtworkResponse>({
     queryKey: ["arts"],
     queryFn: () =>
       fetch("https://api.artic.edu/api/v1/artworks").then((res) => res.json()),
@@ -19,7 +19,7 @@ export const ArtPager: React.FC = () => {
   return (
     <FetchErrorContainer {...{ isLoading, error }}>
       {/* <div>{JSON.stringify(data)}</div> */}
-      <div>{pieces?.data.map(ArtPiece)}</div>
+      <div>{pieces?.data.map(Artwork)}</div>
     </FetchErrorContainer>
   );
 };

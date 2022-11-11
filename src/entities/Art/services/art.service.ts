@@ -8,7 +8,7 @@ export const artKeys = {
   detail: (id: number) => [...artKeys.details(), id] as const,
 };
 
-// const getArtPieces = ({}): Promise<ArtEduArtRequest> => {
+// const getArtworks = ({}): Promise<ArtEduArtRequest> => {
 //   return fetch({
 //     url: [serviceConstants.BASE_URL].join("/"),
 //   });
