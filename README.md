@@ -24,10 +24,14 @@ I wanted to try out React Query; typesafety and async state-management library f
 
 ## Run it!
 
+Download the repo locally
+
 ```bash
 git clone https://github.com/jofaval/ui-query-art.git
 cd ui-query-art
 ```
+
+And install all the necessary packages
 
 ```bash
 pnpm install # or npm install or yarn install
