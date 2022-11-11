@@ -1,13 +1,16 @@
+import { ArtworkImage } from "./details/ArtworkImage";
 import { Thumbnail } from "./details/Thumbnail";
 import { ArtworkType } from "./types/art-work.type";
 
 export const Artwork: React.FC<ArtworkType> = ({
   credit_line,
-  thumbnail,
   id,
+  image_id,
+  thumbnail,
 }) => (
   <div title={id.toString()}>
     <div className="credit_line">{credit_line}</div>
-    {thumbnail && <Thumbnail {...thumbnail} />}
+    {image_id && <ArtworkImage id={image_id} />}
+    {/* {thumbnail && <Thumbnail {...thumbnail} />} */}
   </div>
 );

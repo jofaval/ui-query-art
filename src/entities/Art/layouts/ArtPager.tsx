@@ -5,6 +5,8 @@ import { FetchErrorContainer } from "../../../components/FetchErrorContainer";
 
 import { ArtEduArtworkResponse } from "../types/art-work.type";
 
+import styles from "artwork-pager.module.css";
+
 export const ArtPager: React.FC = () => {
   const {
     data: pieces,
@@ -18,8 +20,11 @@ export const ArtPager: React.FC = () => {
 
   return (
     <FetchErrorContainer {...{ isLoading, error }}>
-      {/* <div>{JSON.stringify(data)}</div> */}
-      <div>{pieces?.data.map(Artwork)}</div>
+      <div>
+        {pieces?.data.map((artPieceProps, index) => (
+          <Artwork {...artPieceProps} key={index} />
+        ))}
+      </div>
     </FetchErrorContainer>
   );
 };
