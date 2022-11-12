@@ -1,5 +1,3 @@
-import { ArtEduRequestResponse } from "types/art-edu";
-
 export interface ArtworkType {
   alt_artist_ids: any[];
   alt_classification_ids: string[];
@@ -119,6 +117,3 @@ interface Thumbnail {
   height: number;
   alt_text: string;
 }
-
-export type ArtEduArtworkResponse = ArtEduRequestResponse<ArtworkType[]>;
-export type ArtEduArtworkEntryResponse = ArtEduRequestResponse<ArtworkType>;

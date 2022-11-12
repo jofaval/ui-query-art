@@ -1,7 +1,7 @@
 import { ErrorWrapper } from "components/Error";
 import { SmartImage } from "components/SmartImage";
 
-import { ArtworkType } from "../types/art-work.type";
+import { ArtworkType } from "../types/generic-art-work.type";
 
 const NO_THUMBNAIL_ERROR = {
   name: "Missing",

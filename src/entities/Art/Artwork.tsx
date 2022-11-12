@@ -1,6 +1,7 @@
 import { ArtworkImage } from "./content/ArtworkImage";
 import { Thumbnail } from "./content/Thumbnail";
-import { ArtworkType } from "./types/art-work.type";
+
+import type { ArtworkType } from "./types/generic-art-work.type";
 
 export const Artwork: React.FC<
   ArtworkType & { className?: string; artWorkImageClassName?: string }

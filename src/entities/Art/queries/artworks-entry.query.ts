@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ENDPOINTS } from "constants/service.constants";
 import { artworksKeys } from ".";
 
-import { ArtEduArtworkEntryResponse } from "../types/art-work.type";
+import { ArtEduArtworkEntryResponse } from "../types/art-works-entry.type";
 
 export const fetchArtworkEntry = async (
   id: number

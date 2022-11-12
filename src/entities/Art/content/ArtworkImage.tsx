@@ -1,10 +1,10 @@
 import { useArtworksQuery } from "../queries";
 
 import { router } from "routes/router";
-import { SmartImage } from "components/SmartImage";
-
-import { ArtworkType } from "../types/art-work.type";
 import { artworksRoute } from "views/artworks";
+
+import { SmartImage } from "components/SmartImage";
+import { ArtworkType } from "../types/generic-art-work.type";
 
 const ArtworkImagePlaceholder: React.FC = () => (
   <div className="bg-zinc-300 rounded h-full">&nbsp;</div>

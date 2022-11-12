@@ -3,9 +3,9 @@ import { useQuery } from "@tanstack/react-query";
 import { ENDPOINTS } from "constants/service.constants";
 import { artworksKeys } from ".";
 
-import { ArtEduArtworkResponse } from "../types/art-work.type";
+import { ArtEduArtworksResponse } from "../types/art-works.type";
 
-export const fetchArtworks = async (): Promise<ArtEduArtworkResponse> => {
+export const fetchArtworks = async (): Promise<ArtEduArtworksResponse> => {
   const response = await fetch(ENDPOINTS.ARTWORKS.LIST);
   return await response.json();
 };
