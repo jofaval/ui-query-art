@@ -1,4 +1,5 @@
-import { ErrorWrapper } from "components/Error";
+import { ErrorWrapper } from "@/components/Error";
+import { SmartImage } from "@/components/SmartImage";
 
 import { ArtworkType } from "../types/art-work.type";
 
@@ -14,5 +15,5 @@ export const Thumbnail: React.FC<ArtworkType["thumbnail"]> = (props) => {
 
   const { alt_text, height, lqip, width } = props;
 
-  return <img {...{ alt: alt_text, height, src: lqip, width }} />;
+  return <SmartImage {...{ alt: alt_text, height, src: lqip, width }} />;
 };

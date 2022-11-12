@@ -8,9 +8,10 @@ export const Artwork: React.FC<ArtworkType & { className?: string }> = ({
   image_id,
   thumbnail,
   className = "",
+  title,
 }) => (
   <div title={id.toString()} className={className}>
-    {image_id && <ArtworkImage id={image_id} />}
+    {image_id && <ArtworkImage {...{ id, image_id, title }} />}
     {/* {thumbnail && <Thumbnail {...thumbnail} />} */}
 
     <div className="credit_line">{credit_line}</div>
