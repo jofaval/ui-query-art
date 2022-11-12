@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { Artwork } from "../Artwork";
-import { FetchErrorContainer } from "../../../components/FetchErrorContainer";
 
+import { FetchErrorContainer } from "components/FetchErrorContainer";
 import { ArtEduArtworkResponse } from "../types/art-work.type";
 
 import styles from "artwork-pager.module.css";

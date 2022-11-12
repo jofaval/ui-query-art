@@ -1,4 +1,5 @@
-import { ErrorWrapper } from "../../../components/Error";
+import { ErrorWrapper } from "components/Error";
+
 import { ArtworkType } from "../types/art-work.type";
 
 const NO_THUMBNAIL_ERROR = {

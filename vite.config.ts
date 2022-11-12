@@ -8,9 +8,4 @@ const base = process.env.NODE_ENV === "production" ? "/ui-query-art/" : "/";
 export default defineConfig({
   plugins: [react()],
   base,
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
 });

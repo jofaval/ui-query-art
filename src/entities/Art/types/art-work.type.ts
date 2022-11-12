@@ -1,4 +1,4 @@
-import { ArtEduRequestResponse } from "../../../types/art-edu";
+import { ArtEduRequestResponse } from "types/art-edu";
 
 export interface ArtworkType {
   alt_artist_ids: any[];
