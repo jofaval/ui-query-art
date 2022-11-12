@@ -7,6 +7,6 @@ import { Index } from "views/Index";
 
 export const ROUTES = {
   [PATHS.HOME]: Index,
-  [PATHS.ARTWORKS.LIST]: Artwork,
+  [PATHS.ARTWORKS.LIST]: ArtPager,
   [PATHS.FALLBACK]: ArtPager,
 } as Record<string, React.FC>;
