@@ -6,7 +6,7 @@ import { ArtPager } from "entities/Art/layouts/ArtPager";
 import { Index } from "views/Index";
 
 export const ROUTES = {
-  [PATHS.HOME]: ArtPager,
+  [PATHS.HOME]: Index,
   [PATHS.ARTWORKS.LIST]: Artwork,
-  [PATHS.FALLBACK]: Index,
+  [PATHS.FALLBACK]: ArtPager,
 } as Record<string, React.FC>;

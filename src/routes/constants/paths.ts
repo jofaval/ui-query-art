@@ -1,5 +1,5 @@
 export const PATHS = {
-  HOME: "/",
+  HOME: "/home",
   ARTWORKS: {
     LIST: "artworks",
     ENTRY: "artworks/:id",
