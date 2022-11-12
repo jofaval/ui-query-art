@@ -1,12 +1,17 @@
 import { z } from "zod";
-import { useArtworkEntryQuery } from "entities/Art/hooks/useArtworkEntryQuery";
 
 import { FetchErrorContainer } from "components/FetchErrorContainer";
 
+import { prefetchQueryWithDefault } from "utils/query.helpers";
+
 import { router } from "routes/router";
-import { artworksRoute } from ".";
-import { artworksIndexRoute } from "./artworks";
-import { queryClient } from "queries/query";
+import { artworksRoute } from "./index";
+
+import {
+  artworksKeys,
+  fetchArtworkEntry,
+  useArtworkEntryQuery,
+} from "entities/Art/queries";
 
 export const artworkRoute = artworksRoute.createRoute({
   path: ":id",
@@ -15,18 +20,16 @@ export const artworkRoute = artworksRoute.createRoute({
     id: z.number().int().parse(Number(params.id)),
   }),
   stringifyParams: ({ id }) => ({ id: `${id}` }),
-  loader: async () => {
-    queryClient.getQueryData(["posts"]) ??
-      (await queryClient.prefetchQuery(["posts"], fetchPosts));
-    return {};
-  },
-  action: patchInvoice,
+  loader: async ({ params: { id } }) =>
+    prefetchQueryWithDefault(artworksKeys.detail(id), () =>
+      fetchArtworkEntry(id)
+    ),
 });
 
 function ArtworkView() {
   const {
     loaderData: { id },
-  } = router.useMatch(artworksIndexRoute.id);
+  } = router.useMatch(artworkRoute.id);
 
   const { data, error, isLoading, isSuccess } = useArtworkEntryQuery(id);
 

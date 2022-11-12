@@ -1,10 +1,19 @@
 import { createRouteConfig } from "@tanstack/react-router";
+import { router } from "routes/router";
+
+import { prefetchQueryWithDefault } from "utils/query.helpers";
+import { artworksKeys, fetchArtworks } from "entities/Art/queries";
+
+import { ArtPager } from "entities/Art/layouts/ArtPager";
 
 export const artworksRoute = createRouteConfig().createRoute({
   path: "artworks",
-  element: <Artwork />,
+  element: <Artworks />,
+  loader: async () => prefetchQueryWithDefault(artworksKeys.all, fetchArtworks),
 });
 
-function Artwork() {
-  return <div></div>;
+function Artworks() {
+  const route = router.useMatch(artworksRoute.id);
+
+  return <ArtPager />;
 }
