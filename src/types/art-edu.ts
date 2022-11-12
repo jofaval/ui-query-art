@@ -18,9 +18,9 @@ export interface Config {
   website_url: string;
 }
 
-export interface ArtEduRequestResponse<TData = any> {
+export type ArtEduRequestResponse<TData = any> = Readonly<{
   pagination: ArtEduRequestPagination;
   data: TData;
   info: Info;
   config: Config;
-}
+}>;
