@@ -1,4 +1,4 @@
-import { ENDPOINTS } from "@/constants/service.constants";
+import { ENDPOINTS } from "constants/service.constants";
 
 import { useQuery } from "@tanstack/react-query";
 

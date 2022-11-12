@@ -1,9 +1,9 @@
 import React from "react";
 import { PATHS } from "./paths";
 
-import { Artwork } from "@/entities/Art/Artwork";
-import { ArtPager } from "@/entities/Art/layouts/ArtPager";
-import { Index } from "@/views/Index";
+import { Artwork } from "entities/Art/Artwork";
+import { ArtPager } from "entities/Art/layouts/ArtPager";
+import { Index } from "views/Index";
 
 export const ROUTES = {
   [PATHS.HOME]: ArtPager,

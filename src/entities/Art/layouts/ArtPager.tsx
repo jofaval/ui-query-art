@@ -1,6 +1,6 @@
 import { Artwork } from "../Artwork";
 
-import { FetchErrorContainer } from "@/components/FetchErrorContainer";
+import { FetchErrorContainer } from "components/FetchErrorContainer";
 
 import { useArtworksQuery } from "../hooks/useArtworksQuery";
 

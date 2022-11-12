@@ -1,5 +1,5 @@
-import { ErrorWrapper } from "@/components/Error";
-import { SmartImage } from "@/components/SmartImage";
+import { ErrorWrapper } from "components/Error";
+import { SmartImage } from "components/SmartImage";
 
 import { ArtworkType } from "../types/art-work.type";
 

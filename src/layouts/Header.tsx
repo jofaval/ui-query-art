@@ -1,7 +1,7 @@
-import { PATHS } from "@/routes/constants/paths";
+import { PATHS } from "routes/constants/paths";
 
-import { LinkPropsType } from "@/components/Link";
-import { Link } from "@/components/Link";
+import { LinkPropsType } from "components/Link";
+import { Link } from "components/Link";
 
 const links = [{ children: "Home", path: PATHS.HOME }] as LinkPropsType[];
 

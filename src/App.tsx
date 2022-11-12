@@ -1,6 +1,6 @@
 import { Outlet } from "@tanstack/react-router";
 
-import { Header } from "@/layouts/Header";
+import { Header } from "layouts/Header";
 
 import "./App.css";
 

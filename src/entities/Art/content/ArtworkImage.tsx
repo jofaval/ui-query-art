@@ -1,7 +1,7 @@
 import { useArtworksQuery } from "../hooks/useArtworksQuery";
 
-import { Link } from "@/components/Link";
-import { SmartImage } from "@/components/SmartImage";
+import { Link } from "components/Link";
+import { SmartImage } from "components/SmartImage";
 
 import { ArtworkType } from "../types/art-work.type";
 
