@@ -1,9 +1,10 @@
-import { useArtworksQuery } from "../hooks/useArtworksQuery";
+import { useArtworksQuery } from "../queries";
 
-import { Link } from "components/Link";
+import { router } from "routes/router";
 import { SmartImage } from "components/SmartImage";
 
 import { ArtworkType } from "../types/art-work.type";
+import { artworksRoute } from "views/artworks";
 
 const ArtworkImagePlaceholder: React.FC = () => (
   <div className="bg-zinc-300 rounded h-full">&nbsp;</div>
@@ -15,6 +16,7 @@ export const ArtworkImage: React.FC<
   }
 > = ({ id, image_id, title, className = "w-48 h-48" }) => {
   const { data: artworksData, isSuccess } = useArtworksQuery();
+  const { Link } = router.useMatch(artworksRoute.id);
 
   let src = "";
   if (isSuccess && image_id) {
@@ -26,7 +28,7 @@ export const ArtworkImage: React.FC<
   }
 
   return (
-    <Link path={`artworks/${id}`}>
+    <Link to={"/artworks/:id"} params={{ id }}>
       <div className={["m-auto", className].filter(Boolean).join(" ")}>
         <SmartImage
           {...{ src, className: "object-contain m-auto max-h-full max-w-full" }}
