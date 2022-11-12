@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
 import { useArtworksQuery } from "../hooks/useArtworksQuery";
-import { ArtEduArtworkResponse, ArtworkType } from "../types/art-work.type";
+
+import { ArtworkType } from "../types/art-work.type";
 
 export const ArtworkImage: React.FC<{ id: ArtworkType["image_id"] }> = ({
   id,
@@ -13,7 +13,6 @@ export const ArtworkImage: React.FC<{ id: ArtworkType["image_id"] }> = ({
       "/"
     );
   }
-  console.log({ isSuccess, id });
 
-  return <img src={src} />;
+  return <img {...{ src, className: "w-48 h-48 m-auto" }} />;
 };

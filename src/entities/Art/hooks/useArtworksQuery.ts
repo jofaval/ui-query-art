@@ -1,4 +1,4 @@
-import { ENDPOINTS } from "constants/service.constants";
+import { ENDPOINTS } from "@/constants/service.constants";
 
 import { useQuery } from "@tanstack/react-query";
 
@@ -10,7 +10,7 @@ const fetchArtworks = async (): Promise<ArtEduArtworkResponse> => {
 };
 
 export const useArtworksQuery = () =>
-  useQuery({
+  useQuery<ArtEduArtworkResponse>({
     queryKey: ["artworks", "list"],
     queryFn: fetchArtworks,
     cacheTime: Infinity,
