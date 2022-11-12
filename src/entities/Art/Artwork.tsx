@@ -17,7 +17,13 @@ export const Artwork: React.FC<
   <div title={id.toString()} className={className}>
     {image_id && (
       <ArtworkImage
-        {...{ id, image_id, title, className: artWorkImageClassName }}
+        {...{
+          id,
+          image_id,
+          title,
+          className: artWorkImageClassName,
+          size: 843,
+        }}
       />
     )}
     {/* {thumbnail && <Thumbnail {...thumbnail} />} */}

@@ -13,22 +13,28 @@ const ArtworkImagePlaceholder: React.FC = () => (
 export const ArtworkImage: React.FC<
   Pick<ArtworkType, "id" | "image_id" | "title"> & {
     className?: string;
+    size?: number;
   }
-> = ({ id, image_id, title, className = "w-48 h-48" }) => {
+> = ({
+  id: artworkId,
+  image_id,
+  title,
+  className = "w-48 h-48",
+  size = 843,
+}) => {
   const { data: artworksData, isSuccess } = useArtworksQuery();
-  const { Link } = router.useMatch(artworksRoute.id);
 
   let src = "";
   if (isSuccess && image_id) {
     src = [
       artworksData.config.iiif_url,
       image_id,
-      "full/843,/0/default.jpg",
+      `full/${size},/0/default.jpg`,
     ].join("/");
   }
 
   return (
-    <Link to={"/artworks/:id"} params={{ id }}>
+    <router.Link to={"/artworks/:artworkId"} params={{ artworkId }}>
       <div className={["m-auto", className].filter(Boolean).join(" ")}>
         <SmartImage
           {...{ src, className: "object-contain m-auto max-h-full max-w-full" }}
@@ -36,6 +42,6 @@ export const ArtworkImage: React.FC<
           loading={<ArtworkImagePlaceholder />}
         />
       </div>
-    </Link>
+    </router.Link>
   );
 };
