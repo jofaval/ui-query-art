@@ -11,10 +11,11 @@ const defaultErrorWrapper = (error: unknown) => ({
 export const FetchErrorContainer: React.FC<
   Pick<UseQueryResult, "isLoading" | "error"> & {
     children: JSX.Element | JSX.Element[];
+    PropsLoader?: JSX.Element;
   }
-> = ({ isLoading, error, children }) => {
+> = ({ isLoading, error, children, PropsLoader }) => {
   if (isLoading) {
-    return <Loader />;
+    return PropsLoader !== undefined ? PropsLoader : <Loader />;
   }
 
   if (error && error instanceof Error) {
