@@ -12,14 +12,12 @@ import { App } from "./App";
 import "./index.css";
 
 const rootElement = document.getElementById("root");
-if (!rootElement?.innerHTML) {
-  ReactDOM.createRoot(rootElement as HTMLElement).render(
-    <React.StrictMode>
-      <RouterProvider router={router}>
-        <QueryClientProvider client={queryClient}>
-          <App />
-        </QueryClientProvider>
-      </RouterProvider>
-    </React.StrictMode>
-  );
-}
+ReactDOM.createRoot(rootElement ?? document.body).render(
+  <React.StrictMode>
+    <RouterProvider router={router}>
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
+    </RouterProvider>
+  </React.StrictMode>
+);

@@ -7,8 +7,6 @@ export const indexRoute = createRouteConfig().createRoute({
 });
 
 function Index() {
-  const route = router.useMatch(indexRoute.id);
-
   return (
     <div className="index">
       <p>Hello World!</p>

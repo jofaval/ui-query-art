@@ -13,7 +13,5 @@ export const artworksRoute = createRouteConfig().createRoute({
 });
 
 function Artworks() {
-  const route = router.useMatch(artworksRoute.id);
-
   return <ArtPager />;
 }

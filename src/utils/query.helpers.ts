@@ -10,3 +10,12 @@ export const prefetchQueryWithDefault = async (
 
   return fallback;
 };
+
+export const stringifyQueryParams = (params: Record<string, any>) =>
+  Object.entries(params).reduce(
+    (prev, [key, value]) => ({
+      ...prev,
+      [key]: value.toString(),
+    }),
+    {} as Record<string, any>
+  );

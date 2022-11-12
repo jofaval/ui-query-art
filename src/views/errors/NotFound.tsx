@@ -1,7 +1,7 @@
-import { errorsRoute } from ".";
+import { createRouteConfig } from "@tanstack/react-router";
 
-export const notFoundFallbackRoute = errorsRoute.createRoute({
-  path: "404",
+export const notFoundFallbackRoute = createRouteConfig().createRoute({
+  path: "*",
   element: <NotFound />,
 });
 

@@ -1,77 +1,81 @@
 import { z } from "zod";
 
-import { FetchErrorContainer } from "components/FetchErrorContainer";
-
 import { router } from "routes/router";
 import { artworksRoute } from "./index";
 
-import {
-  artworksKeys,
-  fetchArtworkEntry,
-  useArtworkEntryQuery,
-} from "entities/Art/queries";
 import { queryClient } from "queries/query";
-import { ArtEduArtworksResponse } from "entities/Art/types/art-works.type";
+import { artworksKeys, fetchArtworkEntry } from "entities/Art/queries";
+import { stringifyQueryParams } from "utils/query.helpers";
+
+import type { ArtEduArtworksResponse } from "entities/Art/types/art-works.type";
+import type { ArtEduArtworkEntryResponse } from "entities/Art/types/art-works-entry.type";
 
 export const artworkRoute = artworksRoute.createRoute({
-  path: ":id",
+  path: ":artworkId",
   element: <ArtworkView />,
   parseParams: (params) => ({
-    id: z.number().int().parse(Number(params.id)),
+    artworkId: z.number().int().parse(Number(params.artworkId)),
   }),
-  stringifyParams: ({ id }) => ({ id: `${id}` }),
-  loader: async ({ params: { id } }) => {
-    const prefetchArtworkEntry = queryClient.getQueryData(
-      artworksKeys.detail(id)
-    );
+  stringifyParams: stringifyQueryParams,
+  loader: async ({ params: { artworkId } }) => {
+    console.log("entry", artworkId);
 
+    const prefetchArtworkEntry = queryClient.getQueryData(
+      artworksKeys.detail(artworkId)
+    ) as ArtEduArtworkEntryResponse;
+
+    // console.log("prefetchArtworkEntry", prefetchArtworkEntry);
     if (prefetchArtworkEntry) {
-      return prefetchArtworkEntry;
+      return { artwork: prefetchArtworkEntry };
     }
 
     const prefetchedArtworks = queryClient.getQueryData(
       artworksKeys.all
     ) as ArtEduArtworksResponse;
+    // console.log("prefetchedArtworks", prefetchedArtworks);
 
     if (prefetchedArtworks) {
       const artworkEntryFromPrefetchedArtworks = prefetchedArtworks.data.find(
-        (artworkEntry) => artworkEntry.id === id
+        (artworkEntry) => artworkEntry.id === artworkId
       );
+      // console.log(
+      //   "artworkEntryFromPrefetchedArtworks",
+      //   artworkEntryFromPrefetchedArtworks
+      // );
 
       if (artworkEntryFromPrefetchedArtworks) {
-        return {
+        const artwork = {
           ...prefetchedArtworks,
           data: artworkEntryFromPrefetchedArtworks,
         };
+        return { artwork };
       }
     }
 
-    await queryClient.prefetchQuery(artworksKeys.detail(id), () =>
-      fetchArtworkEntry(id)
+    // console.log("loading...");
+    await queryClient.prefetchQuery(artworksKeys.detail(artworkId), () =>
+      fetchArtworkEntry(artworkId)
     );
+    // console.log("loaded");
 
-    return {};
+    return {
+      artwork: queryClient.getQueryData(artworksKeys.detail(artworkId)),
+    };
   },
 });
 
 function ArtworkView() {
-  const {
-    loaderData: { id },
-  } = router.useMatch(artworkRoute.id);
-
   console.log("entry");
 
-  const { data, error, isLoading, isSuccess } = useArtworkEntryQuery(id);
+  const { loaderData } = router.useMatch(artworkRoute.id);
+
+  console.log("test");
+
+  // const { data, error, isLoading, isSuccess } = useArtworkEntryQuery(id);
 
   return (
-    <FetchErrorContainer {...{ isLoading, error, PropsLoader: <></> }}>
-      <article className="w-full">
-        {isSuccess && (
-          <>
-            <span className="text-md">{JSON.stringify(data)}</span>
-          </>
-        )}
-      </article>
-    </FetchErrorContainer>
+    <article className="w-full">
+      <span className="text-md">{JSON.stringify(loaderData)}</span>
+    </article>
   );
 }

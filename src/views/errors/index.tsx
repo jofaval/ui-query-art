@@ -1,7 +1,7 @@
 import { createRouteConfig } from "@tanstack/react-router";
 
 export const errorsRoute = createRouteConfig().createRoute({
-  path: "*",
+  path: "errors",
   element: <Errors />,
 });
 
