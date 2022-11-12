@@ -11,12 +11,12 @@ export const ArtPager: React.FC = () => {
 
   return (
     <FetchErrorContainer {...{ isLoading, error }}>
-      <main className="flex flex-wrap">
+      <section className="flex flex-wrap">
         {isSuccess &&
           pieces.data.map((artPieceProps, index) => (
             <Artwork {...artPieceProps} key={index} className="w-1/4" />
           ))}
-      </main>
+      </section>
     </FetchErrorContainer>
   );
 };

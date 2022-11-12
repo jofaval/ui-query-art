@@ -1,10 +1,17 @@
+import { Outlet } from "@tanstack/react-router";
+
+import { Header } from "@/layouts/Header";
+
 import "./App.css";
-import { ArtPager } from "./entities/Art/layouts/ArtPager";
 
 export const App: React.FC = () => {
   return (
-    <div className="App">
-      <ArtPager />
-    </div>
+    <section className="App">
+      <Header />
+
+      <main>
+        <Outlet />
+      </main>
+    </section>
   );
 };
