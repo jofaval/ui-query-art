@@ -1,11 +1,12 @@
+// import { router } from "routes/router";
 import { PATHS } from "routes/constants/paths";
 
 import { LinkPropsType } from "components/Link";
 import { Link } from "components/Link";
 
 const links = [
-  { children: "Home", path: PATHS.HOME },
-  { children: "Artworks / Museum", path: PATHS.ARTWORKS.LIST },
+  { children: "Home", path: "/home" },
+  { children: "Artworks / Museum", path: "/artworks" },
 ] as LinkPropsType[];
 
 export const Header: React.FC = () => (
@@ -15,6 +16,9 @@ export const Header: React.FC = () => (
     <nav className="header m-auto flex gap-2">
       {links.map((linkProps, index) => (
         <Link {...linkProps} key={index} />
+        // <router.Link to={linkProps.path} key={index}>
+        //   {linkProps.children}
+        // </router.Link>
       ))}
     </nav>
   </header>

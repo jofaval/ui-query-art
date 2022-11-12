@@ -1,7 +1,8 @@
 export const PATHS = {
   HOME: "/home",
   ARTWORKS: {
-    LIST: "artworks",
+    INDEX: "artworks",
+    LIST: "/",
     ENTRY: ":id",
   },
   FALLBACK: "/",

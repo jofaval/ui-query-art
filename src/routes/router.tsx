@@ -1,21 +1,16 @@
 import { createReactRouter, createRouteConfig } from "@tanstack/react-router";
 
-import { PATHS } from "./constants/paths";
-import { ROUTES } from "./constants/routes";
+import { indexRoute } from "views/Index";
+import { notFoundFallbackRoute } from "views/errors/NotFound";
+import { errorsRoute } from "views/errors";
+import { artworksRoute } from "views/artworks";
+import { artworkRoute } from "views/artworks/artwork";
+import { artworksIndexRoute } from "views/artworks/artworks";
 
-import { ArtPager } from "entities/Art/layouts/ArtPager";
-import { Index } from "views/Index";
-import { NotFound } from "views/errors/NotFound";
-
-const routeConfig = createRouteConfig().createChildren((createRoute) => [
-  createRoute({ path: PATHS.HOME, element: <Index /> }),
-  createRoute({
-    path: PATHS.ARTWORKS.LIST,
-    element: <ArtPager />,
-  }).createChildren((createArtworksRoute) => [
-    createArtworksRoute({ path: PATHS.ARTWORKS.ENTRY, element: <ArtPager /> }),
-  ]),
-  createRoute({ path: PATHS.FALLBACK, element: <NotFound /> }),
+const routeConfig = createRouteConfig().addChildren([
+  indexRoute,
+  artworksRoute.addChildren([artworksIndexRoute, artworkRoute]),
+  errorsRoute.addChildren([notFoundFallbackRoute]),
 ]);
 
 export const router = createReactRouter({ routeConfig });
