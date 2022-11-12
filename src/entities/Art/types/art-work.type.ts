@@ -121,3 +121,4 @@ interface Thumbnail {
 }
 
 export type ArtEduArtworkResponse = ArtEduRequestResponse<ArtworkType[]>;
+export type ArtEduArtworkEntryResponse = ArtEduRequestResponse<ArtworkType>;

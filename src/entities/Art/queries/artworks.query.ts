@@ -1,17 +1,18 @@
-import { ENDPOINTS } from "constants/service.constants";
-
 import { useQuery } from "@tanstack/react-query";
+
+import { ENDPOINTS } from "constants/service.constants";
+import { artworksKeys } from ".";
 
 import { ArtEduArtworkResponse } from "../types/art-work.type";
 
-const fetchArtworks = async (): Promise<ArtEduArtworkResponse> => {
+export const fetchArtworks = async (): Promise<ArtEduArtworkResponse> => {
   const response = await fetch(ENDPOINTS.ARTWORKS.LIST);
   return await response.json();
 };
 
 export const useArtworksQuery = () =>
   useQuery({
-    queryKey: ["artworks", "list"],
+    queryKey: artworksKeys.all,
     queryFn: fetchArtworks,
     cacheTime: Infinity,
   });
