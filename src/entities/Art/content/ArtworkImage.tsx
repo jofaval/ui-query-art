@@ -6,12 +6,14 @@ import { SmartImage } from "components/SmartImage";
 import { ArtworkType } from "../types/art-work.type";
 
 const ArtworkImagePlaceholder: React.FC = () => (
-  <div className="w-48 h-48 m-auto bg-zinc-300 rounded">&nbsp;</div>
+  <div className="bg-zinc-300 rounded h-full">&nbsp;</div>
 );
 
 export const ArtworkImage: React.FC<
-  Pick<ArtworkType, "id" | "image_id" | "title">
-> = ({ id, image_id, title }) => {
+  Pick<ArtworkType, "id" | "image_id" | "title"> & {
+    className?: string;
+  }
+> = ({ id, image_id, title, className = "w-48 h-48" }) => {
   const { data: artworksData, isSuccess } = useArtworksQuery();
 
   let src = "";
@@ -25,11 +27,13 @@ export const ArtworkImage: React.FC<
 
   return (
     <Link path={`artworks/${id}`}>
-      <SmartImage
-        {...{ src, className: "w-48 h-48 m-auto object-contain" }}
-        alt={""}
-        loading={<ArtworkImagePlaceholder />}
-      />
+      <div className={["m-auto", className].filter(Boolean).join(" ")}>
+        <SmartImage
+          {...{ src, className: "object-contain m-auto max-h-full max-w-full" }}
+          alt={title}
+          loading={<ArtworkImagePlaceholder />}
+        />
+      </div>
     </Link>
   );
 };
