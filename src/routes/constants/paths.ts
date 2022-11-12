@@ -4,5 +4,5 @@ export const PATHS = {
     LIST: "artworks",
     ENTRY: "artworks/:id",
   },
-  FALLBACK: "/",
+  FALLBACK: "*",
 };
