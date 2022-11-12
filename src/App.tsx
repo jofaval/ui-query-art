@@ -1,17 +1,18 @@
 import { Outlet } from "@tanstack/react-router";
 
 import { Header } from "layouts/Header";
-
-import "./App.css";
+import { Footer } from "components/Footer";
 
 export const App: React.FC = () => {
   return (
-    <section className="App">
+    <section>
       <Header />
 
-      <main>
+      <main className="p-3 pt-8 container m-auto">
         <Outlet />
       </main>
+
+      <Footer />
     </section>
   );
 };

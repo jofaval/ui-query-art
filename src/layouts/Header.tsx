@@ -9,8 +9,8 @@ const links = [
 ] as LinkPropsType[];
 
 export const Header: React.FC = () => (
-  <header className="flex flex-wrap relative h-8">
-    <h1 className="h1 text-2xl font-bold absolute left-0">Home</h1>
+  <header className="flex flex-wrap relative h-8 p-3 container m-auto">
+    <h1 className="h1 text-2xl font-bold absolute left-3">Home</h1>
 
     <nav className="header m-auto flex gap-2">
       {links.map((linkProps, index) => (
