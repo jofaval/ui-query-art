@@ -15,7 +15,8 @@ export const ArtPager: React.FC = () => {
             <Artwork
               {...artPieceProps}
               key={index}
-              className="w-1/4"
+              // className="w-1/4"
+              className="w-64 h-64"
               artWorkImageClassName={"w-auto h-2/3"}
             />
           ))}
