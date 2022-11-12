@@ -10,7 +10,7 @@ const fetchArtworks = async (): Promise<ArtEduArtworkResponse> => {
 };
 
 export const useArtworksQuery = () =>
-  useQuery<ArtEduArtworkResponse>({
+  useQuery({
     queryKey: ["artworks", "list"],
     queryFn: fetchArtworks,
     cacheTime: Infinity,
