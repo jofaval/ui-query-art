@@ -1,5 +1,4 @@
 import { createRouteConfig } from "@tanstack/react-router";
-import { router } from "routes/router";
 
 export const indexRoute = createRouteConfig().createRoute({
   path: "/",

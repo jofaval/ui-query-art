@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { router } from "routes/router";
+import { router } from "views/router";
 import { artworksRoute } from "./index";
 
 import { queryClient } from "queries/query";

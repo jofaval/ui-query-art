@@ -1,13 +1,4 @@
-import { router } from "routes/router";
-import { indexRoute } from "views";
-
-import { LinkPropsType } from "components/Link";
-import { Link } from "components/Link";
-
-const links = [
-  { children: "Home", path: "/home" },
-  { children: "Artworks / Museum", path: "/artworks" },
-];
+import { router } from "views/router";
 
 export const Header: React.FC = () => (
   <header className="flex flex-wrap relative h-8 p-3 container m-auto">

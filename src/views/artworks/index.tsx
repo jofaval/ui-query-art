@@ -1,5 +1,4 @@
-import { createRouteConfig } from "@tanstack/react-router";
-import { router } from "routes/router";
+import { createRouteConfig, Outlet } from "@tanstack/react-router";
 
 import { prefetchQueryWithDefault } from "utils/query.helpers";
 import { artworksKeys, fetchArtworks } from "entities/Art/queries";
@@ -13,5 +12,11 @@ export const artworksRoute = createRouteConfig().createRoute({
 });
 
 function Artworks() {
-  return <ArtPager />;
+  return (
+    <div>
+      <Outlet />
+
+      <ArtPager />
+    </div>
+  );
 }
