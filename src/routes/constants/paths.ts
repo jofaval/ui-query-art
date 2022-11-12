@@ -1,9 +1,9 @@
 export const PATHS = {
-  HOME: "/home",
+  HOME: "home",
   ARTWORKS: {
     INDEX: "artworks",
     LIST: "/",
     ENTRY: ":id",
   },
-  FALLBACK: "/",
+  FALLBACK: "*",
 };

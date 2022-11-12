@@ -1,6 +1,6 @@
 import { createReactRouter, createRouteConfig } from "@tanstack/react-router";
 
-import { indexRoute } from "views/Index";
+import { indexRoute } from "views";
 
 import { errorsRoute } from "views/errors";
 import { notFoundFallbackRoute } from "views/errors/NotFound";

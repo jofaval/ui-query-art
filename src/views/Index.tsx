@@ -1,12 +1,14 @@
 import { createRouteConfig } from "@tanstack/react-router";
-import { PATHS } from "routes/constants/paths";
+import { router } from "routes/router";
 
 export const indexRoute = createRouteConfig().createRoute({
-  path: PATHS.HOME,
+  path: "/",
   element: <Index />,
 });
 
 function Index() {
+  const route = router.useMatch(indexRoute.id);
+
   return (
     <div className="index">
       <p>Hello World!</p>
