@@ -43,3 +43,12 @@ pnpm install # or npm install or yarn install
 [https://github.com/public-apis/public-apis#books](https://github.com/public-apis/public-apis#books).
 
 Tanner Linsley (Tannstack's creator) and Theo Browne (the influencer/ceo that made me want to try react query so bad)
+
+## TODO
+
+- [] Implement scroll
+- [] Fix CI/CD build
+- [] Fix `(intermediate value)(...) is undefined`
+- [] Implement currently viewing status for artworks
+- [] Implement search
+- [] Implement pagination
