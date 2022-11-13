@@ -5,10 +5,10 @@ import { Footer } from "components/Footer";
 
 export const App: React.FC = () => {
   return (
-    <section>
+    <section className="max-h-screen">
       <Header />
 
-      <main className="p-3 pt-8 container m-auto">
+      <main className="p-3 pt-8">
         <Outlet />
       </main>
 
