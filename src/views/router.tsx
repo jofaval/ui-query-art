@@ -1,6 +1,7 @@
 import { createReactRouter, createRouteConfig } from "@tanstack/react-router";
 
 import { indexRoute } from "./index.view";
+import { homeRoute } from "./home.view";
 
 import { errorsRoute } from "./errors/index.view";
 import { notFoundFallbackRoute } from "./errors/not-found.view";
@@ -11,6 +12,7 @@ import { artworkRoute } from "./artworks/artwork.view";
 
 const routeConfig = createRouteConfig().addChildren([
   indexRoute,
+  homeRoute,
   artworksRoute.addChildren([artworksIndexRoute, artworkRoute]),
   errorsRoute.addChildren([notFoundFallbackRoute]),
 ]);
