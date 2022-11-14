@@ -13,17 +13,12 @@ export const artworksRoute = createRouteConfig().createRoute({
 
 function Artworks() {
   return (
-    <div className="flex">
-      <div
-        className="w-8/12 scrollbar-thin"
-        style={{
-          scrollbarWidth: "thin",
-        }}
-      >
+    <div className="flex max-h-full">
+      <div className="w-8/12 h-full">
         <ArtPager />
       </div>
 
-      <div className="w-4/12">
+      <div className="w-4/12 h-full overflow-x-hidden overflow-y-auto">
         <Outlet />
       </div>
     </div>

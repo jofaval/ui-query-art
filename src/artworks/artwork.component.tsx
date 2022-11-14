@@ -14,7 +14,7 @@ export const Artwork: React.FC<
   title,
   artWorkImageClassName,
 }) => (
-  <div title={id.toString()} className={className}>
+  <article title={`${id} - ${title}`} className={className}>
     {image_id && (
       <ArtworkImage
         {...{
@@ -28,6 +28,14 @@ export const Artwork: React.FC<
     )}
     {/* {thumbnail && <Thumbnail {...thumbnail} />} */}
 
-    <div className="credit_line text-center">{credit_line}</div>
-  </div>
+    <h3 className="text-lg font-bold text-ellipsis whitespace-nowrap overflow-hidden">
+      {title}
+    </h3>
+    <p
+      className="credit_line text-center text-ellipsis whitespace-nowrap overflow-hidden"
+      title={credit_line}
+    >
+      {credit_line}
+    </p>
+  </article>
 );

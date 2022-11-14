@@ -14,7 +14,10 @@ export const ArtPager: React.FC = () => {
 
   return (
     <FetchErrorContainer {...{ isLoading, error, PropsLoader: <></> }}>
-      <section className="flex flex-wrap gap-6 justify-center">
+      <section
+        className="flex flex-wrap gap-6 justify-center overflow-auto"
+        style={{ scrollbarWidth: "thin" }}
+      >
         {isSuccess &&
           pieces.data.map((artPieceProps, index) => (
             <Artwork
