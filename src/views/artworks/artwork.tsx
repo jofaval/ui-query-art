@@ -87,8 +87,6 @@ function ArtworkView() {
     isSuccess,
   } = useArtworkEntryQuery(artworkId);
 
-  console.log(artworkData);
-
   return (
     <FetchErrorContainer
       {...{ isLoading, error, PropsLoader: ARTWORK_ENTRY_LOADER }}

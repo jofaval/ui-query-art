@@ -14,29 +14,23 @@ export const fetchArtworkEntry = async (
   return await response.json();
 };
 
-export const useArtworkEntryQuery = (id: number) => {
+export const useArtworkEntryQuery = (id: number) =>
   useQuery({
     queryKey: artworksKeys.detail(id),
     queryFn: () => {
-      const prefetchedArtworks = queryClient.getQueryData(
-        artworksKeys.all
-      ) as ArtEduArtworksResponse;
+      const artworks = queryClient.getQueryData(artworksKeys.all) as
+        | ArtEduArtworksResponse
+        | undefined;
 
       // cached response
-      if (prefetchedArtworks.data) {
-        const prefetchedArtworkEntry = prefetchedArtworks.data.find(
-          (artwork) => artwork.id === id
-        );
+      if (artworks?.data) {
+        const artworkEntry = artworks.data.find((artwork) => artwork.id === id);
 
-        if (prefetchedArtworkEntry) {
-          return {
-            ...prefetchedArtworks,
-            data: prefetchedArtworkEntry,
-          };
+        if (artworkEntry) {
+          return { ...artworks, data: artworkEntry };
         }
       }
 
       return fetchArtworkEntry(id);
     },
   });
-};
