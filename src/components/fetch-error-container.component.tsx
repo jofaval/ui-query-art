@@ -1,5 +1,5 @@
-import { ErrorWrapper } from "./Error";
-import { Loader } from "./Loader";
+import { ErrorWrapper } from "./error.component";
+import { Loader } from "./loader.component";
 
 import { UseQueryResult } from "@tanstack/react-query";
 

@@ -1,10 +1,10 @@
-import { Artwork } from "../Artwork";
+import { Artwork } from "../artwork.component";
 
 import { useArtworksQuery } from "../queries";
 
 import { router } from "views/router";
 
-import { FetchErrorContainer } from "components/FetchErrorContainer";
+import { FetchErrorContainer } from "components/fetch-error-container.component";
 
 export const ArtPager: React.FC = () => {
   const { data: pieces, isLoading, error, isSuccess } = useArtworksQuery();

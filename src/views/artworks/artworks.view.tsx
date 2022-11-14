@@ -1,4 +1,4 @@
-import { artworksRoute } from ".";
+import { artworksRoute } from "./index.view";
 
 export const artworksIndexRoute = artworksRoute.createRoute({
   path: "/",

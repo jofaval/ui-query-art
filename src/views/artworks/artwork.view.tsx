@@ -1,21 +1,22 @@
 import { z } from "zod";
 
 import { router } from "views/router";
-import { artworksRoute } from "./index";
+import { artworksRoute } from "./index.view";
+
+import { ArtworkImage } from "artworks/content/artwork-image.component";
+import { FetchErrorContainer } from "components/fetch-error-container.component";
+import { Summary } from "components/summary.component";
 
 import { queryClient } from "queries/query";
 import {
   artworksKeys,
   fetchArtworkEntry,
   useArtworkEntryQuery,
-} from "entities/Art/queries";
+} from "artworks/queries";
 import { stringifyQueryParams } from "utils/query.helpers";
 
-import type { ArtEduArtworksResponse } from "entities/Art/types/art-works.type";
-import type { ArtEduArtworkEntryResponse } from "entities/Art/types/art-works-entry.type";
-import { FetchErrorContainer } from "components/FetchErrorContainer";
-import { Summary } from "components/Summary";
-import { ArtworkImage } from "entities/Art/content/ArtworkImage";
+import type { ArtEduArtworksResponse } from "artworks/types/art-works.type";
+import type { ArtEduArtworkEntryResponse } from "artworks/types/art-works-entry.type";
 
 const artworkRouteLoader = async (artworkId: number) => {
   const prefetchArtworkEntry = queryClient.getQueryData(

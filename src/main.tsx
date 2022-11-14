@@ -7,9 +7,9 @@ import { queryClient } from "queries/query";
 import { RouterProvider } from "@tanstack/react-router";
 import { router } from "views/router";
 
-import { App } from "./App";
+import { App } from "./app.component";
 
-import "./index.css";
+import "./styles/index.css";
 
 const rootElement = document.getElementById("root");
 ReactDOM.createRoot(rootElement ?? document.body).render(

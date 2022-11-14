@@ -2,7 +2,7 @@ import { useArtworksQuery } from "../queries";
 
 import { router } from "views/router";
 
-import { SmartImage } from "components/SmartImage";
+import { SmartImage } from "components/smart-image.component";
 import { ArtworkType } from "../types/generic-art-work.type";
 
 const ArtworkImagePlaceholder: React.FC = () => (

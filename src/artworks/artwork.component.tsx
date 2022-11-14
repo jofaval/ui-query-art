@@ -1,5 +1,5 @@
-import { ArtworkImage } from "./content/ArtworkImage";
-import { Thumbnail } from "./content/Thumbnail";
+import { ArtworkImage } from "./content/artwork-image.component";
+import { Thumbnail } from "./content/artwork-thumbnail.component";
 
 import type { ArtworkType } from "./types/generic-art-work.type";
 

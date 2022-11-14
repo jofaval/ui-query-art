@@ -1,13 +1,13 @@
 import { createReactRouter, createRouteConfig } from "@tanstack/react-router";
 
-import { indexRoute } from ".";
+import { indexRoute } from "./index.view";
 
-import { errorsRoute } from "./errors";
-import { notFoundFallbackRoute } from "./errors/NotFound";
+import { errorsRoute } from "./errors/index.view";
+import { notFoundFallbackRoute } from "./errors/not-found.view";
 
-import { artworksRoute } from "./artworks/index";
-import { artworksIndexRoute } from "./artworks/artworks";
-import { artworkRoute } from "./artworks/artwork";
+import { artworksRoute } from "./artworks/index.view";
+import { artworksIndexRoute } from "./artworks/artworks.view";
+import { artworkRoute } from "./artworks/artwork.view";
 
 const routeConfig = createRouteConfig().addChildren([
   indexRoute,
